@@ -50,6 +50,8 @@ document.getElementById('signupForm').addEventListener('submit', async function(
 
     if (response.ok) {
         alert('Signup successful!');
+        // Store the current user in localStorage
+        localStorage.setItem('currentUser', newUsername);
         window.location.href = 'main.html';
     } else {
         const result = await response.json();
@@ -73,6 +75,8 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
     if (response.ok) {
         alert('Login successful!');
+        // Store the current user in localStorage
+        localStorage.setItem('currentUser', username);
         window.location.href = 'main.html';
     } else {
         const result = await response.json();
@@ -82,12 +86,14 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
 // Guest login action for signup form
 document.getElementById('guestLoginSignup').addEventListener('click', function() {
-    // Redirect to the main page
+    // Set guest mode in sessionStorage
+    sessionStorage.setItem('currentUser', 'guest');
     window.location.href = 'main.html';
 });
 
 // Guest login action for login form
 document.getElementById('guestLoginLogin').addEventListener('click', function() {
-    // Redirect to the main page
+    // Set guest mode in sessionStorage
+    sessionStorage.setItem('currentUser', 'guest');
     window.location.href = 'main.html';
 });
