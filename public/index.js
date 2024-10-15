@@ -1,16 +1,13 @@
-// Show signup form and hide login form
 document.getElementById('showSignup').addEventListener('click', function() {
     document.getElementById('signup').style.display = 'block';
     document.getElementById('login').style.display = 'none';
 });
 
-// Show login form and hide signup form
 document.getElementById('showLogin').addEventListener('click', function() {
     document.getElementById('login').style.display = 'block';
     document.getElementById('signup').style.display = 'none';
 });
 
-// Toggle password visibility in signup form
 document.getElementById('toggleSignupPassword').addEventListener('click', function() {
     const passwordInput = document.getElementById('newPassword');
     if (passwordInput.type === 'password') {
@@ -22,7 +19,6 @@ document.getElementById('toggleSignupPassword').addEventListener('click', functi
     }
 });
 
-// Toggle password visibility in login form
 document.getElementById('toggleLoginPassword').addEventListener('click', function() {
     const passwordInput = document.getElementById('password');
     if (passwordInput.type === 'password') {
@@ -34,7 +30,6 @@ document.getElementById('toggleLoginPassword').addEventListener('click', functio
     }
 });
 
-// Handle signup form submission
 document.getElementById('signupForm').addEventListener('submit', async function(event) {
     event.preventDefault();
     const newUsername = document.getElementById('newUsername').value;
@@ -50,7 +45,6 @@ document.getElementById('signupForm').addEventListener('submit', async function(
 
     if (response.ok) {
         alert('Signup successful!');
-        // Store the current user in localStorage
         localStorage.setItem('currentUser', newUsername);
         window.location.href = 'main.html';
     } else {
@@ -59,7 +53,6 @@ document.getElementById('signupForm').addEventListener('submit', async function(
     }
 });
 
-// Handle login form submission
 document.getElementById('loginForm').addEventListener('submit', async function(event) {
     event.preventDefault();
     const username = document.getElementById('username').value;
@@ -75,7 +68,6 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
     if (response.ok) {
         alert('Login successful!');
-        // Store the current user in localStorage
         localStorage.setItem('currentUser', username);
         window.location.href = 'main.html';
     } else {
@@ -84,16 +76,12 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     }
 });
 
-// Guest login action for signup form
 document.getElementById('guestLoginSignup').addEventListener('click', function() {
-    // Set guest mode in sessionStorage
     sessionStorage.setItem('currentUser', 'guest');
     window.location.href = 'main.html';
 });
 
-// Guest login action for login form
 document.getElementById('guestLoginLogin').addEventListener('click', function() {
-    // Set guest mode in sessionStorage
     sessionStorage.setItem('currentUser', 'guest');
     window.location.href = 'main.html';
 });

@@ -16,7 +16,6 @@
     <main>
         <section id="signup">
             <h2>Signup</h2>
-            <!-- Signup form -->
             <form id="signupForm">
                 <input type="text" id="newUsername" placeholder="New Username" required>
                 <div style="position: relative;">
@@ -24,16 +23,12 @@
                     <span class="password-toggle" id="toggleSignupPassword">&#128065;</span>
                 </div>
                 <button type="submit">Signup</button>
-                <!-- Guest Login button -->
                 <button type="button" id="guestLoginSignup">Guest Login</button>
             </form>
-            <!-- Option to switch to login -->
             <p>Already have an account? <button type="button" id="showLogin">Login</button></p>
         </section>
-        <!-- Login form (it will be hidden by default) -->
         <section id="login" style="display: none;">
             <h2>Login</h2>
-            <!-- Login form -->
             <form id="loginForm">
                 <input type="text" id="username" placeholder="Username" required>
                 <div style="position: relative;">
@@ -41,10 +36,8 @@
                     <span class="password-toggle" id="toggleLoginPassword">&#128065;</span>
                 </div>
                 <button type="submit">Login</button>
-                <!-- Guest Login button -->
                 <button type="button" id="guestLoginLogin">Guest Login</button>
             </form>
-            <!-- Option to switch to signup -->
             <p>Don't have an account yet? <button type="button" id="showSignup">Signup</button></p>
         </section>
     </main>
