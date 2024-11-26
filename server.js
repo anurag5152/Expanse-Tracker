@@ -4,13 +4,10 @@ const fs = require('fs');
 const app = express();
 const port = 3000;
 
-// Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
-// Serve static files from the "public" directory
 app.use(express.static('public'));
 
-// Load users from a file
 let users = [];
 try {
     const data = fs.readFileSync('users.json');
@@ -19,12 +16,10 @@ try {
     users = [];
 }
 
-// Save users to a file
 const saveUsers = () => {
     fs.writeFileSync('users.json', JSON.stringify(users, null, 2));
 };
 
-// Signup endpoint
 app.post('/signup', (req, res) => {
     const { username, password } = req.body;
     if (users.find(user => user.username === username)) {
@@ -35,7 +30,7 @@ app.post('/signup', (req, res) => {
     res.status(201).json({ message: 'User created' });
 });
 
-// Login endpoint
+
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
     const user = users.find(user => user.username === username && user.password === password);
@@ -46,7 +41,6 @@ app.post('/login', (req, res) => {
     }
 });
 
-// Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
